@@ -1,0 +1,19 @@
+{
+  "name": "game94",
+  "description": "game",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#1.5.8",
+    "angular-chart": "^0.5.0"
+  }
+}
