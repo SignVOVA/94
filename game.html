@@ -1,0 +1,14 @@
+
+ <div>
+ <h1>{{title}}</h1>
+ <h1>You need to guess at least 94% correctly to WIN.</h1>
+ <h1>You have <span ng-if="won">correctly</span> guessed {{total}}% <span ng-if="won">so you have WON!</span></h1>
+   <form ng-submit="addWord(guessWord)">
+     <input ng-model="guessWord" type="text">
+   </form>
+   <ul><li ng-repeat="word in words">{{word.name}} {{word.percent}}%</li></ul>
+
+   <div style="width:400px; height:400px">
+   	<canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels"></canvas>
+   </div>
+ </div>

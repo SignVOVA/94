@@ -1,6 +1,6 @@
-var app = angular.module('myApp', ['chart.js'])
+var app = angular.module('myApp', ['chart.js', 'ngRoute'])
 
- app.controller('demoCtrl', function($scope, GameFactory) {
+ app.controller('gameController', function($scope, GameFactory) {
   var wordsToGuess = []
   var levelNumber = 0
 
@@ -50,3 +50,18 @@ var app = angular.module('myApp', ['chart.js'])
 
    $scope.nextLevel()
  })
+
+
+app.config(function($routeProvider) {
+    $routeProvider
+      .when('/', {
+        //templateUrl: 'path/to/html' //normally we will use a template url
+        template : "<div>I'm the home page</div>",
+      })
+      .when('/game', {
+        templateUrl : "./game.html",
+        controller  : 'gameController'
+      })
+      .otherwise({
+          redirectTo: '/home'
+}) })
