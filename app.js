@@ -1,6 +1,21 @@
 var app = angular.module('myApp', ['chart.js', 'ngRoute'])
 
  app.controller('gameController', function($scope, GameFactory) {
+
+   /* TODO: DELETE */
+   $scope.fruits = [
+   {
+      name:'banana',
+      color:'yellow'
+   },
+   {
+      name:'apple',
+      color:'green'
+   },
+   {
+      color:'orange'
+   }]
+
   var wordsToGuess = []
   var levelNumber = 0
 
@@ -56,12 +71,28 @@ app.config(function($routeProvider) {
     $routeProvider
       .when('/', {
         //templateUrl: 'path/to/html' //normally we will use a template url
-        template : "<div>I'm the home page</div>",
+        templateUrl : "pages/default.html"
       })
       .when('/game', {
-        templateUrl : "./game.html",
+        templateUrl : "pages/game.html",
         controller  : 'gameController'
+      })
+      .when('/dir', {
+        templateUrl : "pages/dir.html"
       })
       .otherwise({
           redirectTo: '/'
 }) })
+
+/* TODO: DELETE */
+app.directive('wordDirective', function() {
+  return {
+    restrict:'E', //only element name
+    scope: {
+      word: '=' //passing word as string
+    },
+    template: '<div ng-style="{backgroundColor:word.color}">{{word.name}}</div>',
+    controller: function($scope){
+      //additional logic
+} }
+})
