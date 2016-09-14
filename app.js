@@ -63,5 +63,5 @@ app.config(function($routeProvider) {
         controller  : 'gameController'
       })
       .otherwise({
-          redirectTo: '/home'
+          redirectTo: '/'
 }) })
