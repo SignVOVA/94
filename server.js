@@ -16,3 +16,43 @@ app.use(methodOverride());
 // listen (start app with node server.js) ======================================
 app.listen(8080);
 console.log("App listening on port 8080");
+
+
+
+var LEVELS = [
+  {
+    appTitle: 'Coding Languages',
+    words: [
+      {name:"java", percent:55},
+      {name:"angularjs", percent:30},
+      {name:"python", percent:10}
+    ]
+  },{
+    appTitle: 'Vegetables',
+    words: [
+      {name:"potato", percent:25},
+      {name:"carrot", percent:25},
+      {name:"cabbage", percent:25},
+      {name:"leek", percent:25}
+    ]
+  },{
+    appTitle: 'Car make',
+    words: [
+      {name:"vw", percent:35},
+      {name:"ford", percent:19},
+      {name:"ferrafi", percent:23}
+    ]
+  }
+]
+
+app.get('/api/game/level/:levelNumber', function(req,res,next) {
+
+  var level = LEVELS[parseInt(req.params.levelNumber)]
+  if (level) return res.json(level)
+
+  res.status(404).send()
+})
+
+/*app.get("/api/game/level/:levelNumber", function(res, req) {
+  //console.log(req.params.levelNumber)
+})*/

@@ -12,6 +12,7 @@ var app = angular.module('myApp', ['chart.js', 'ngRoute'])
   $scope.labels = []
   $scope.data = []
 
+// roll to the next level =================
   $scope.nextLevel = function() {
     GameFactory.get(levelNumber).then(function(word) {
       wordsToGuess = word.words
@@ -19,7 +20,9 @@ var app = angular.module('myApp', ['chart.js', 'ngRoute'])
     })
    }
 
+// add another word =================
    $scope.addWord = function(guessWord) {
+
       var tmpWord = wordsToGuess.filter(function(word) {
         return word.name ===  guessWord.toLowerCase()
       })
@@ -44,6 +47,7 @@ var app = angular.module('myApp', ['chart.js', 'ngRoute'])
       }
    }
 
+// check if all words were guessed correctly =================
    guessedAllCorrectly = function() {
     $scope.won = $scope.words.length === wordsToGuess.length
     return $scope.won
