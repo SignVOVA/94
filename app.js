@@ -63,13 +63,6 @@ app.config(function($routeProvider) {
         templateUrl : "pages/game.html",
         controller  : 'gameController'
       })
-      .when('/dir', {
-        templateUrl : "pages/dir.html"
-      })
       .otherwise({
           redirectTo: '/'
 }) })
-
-/*http.listen(3000, function(){
-  console.log('listening on *:3000')
-})*/
