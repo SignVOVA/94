@@ -2,20 +2,6 @@ var app = angular.module('myApp', ['chart.js', 'ngRoute'])
 
  app.controller('gameController', function($scope, GameFactory) {
 
-   /* TODO: DELETE */
-   $scope.fruits = [
-   {
-      name:'banana',
-      color:'yellow'
-   },
-   {
-      name:'apple',
-      color:'green'
-   },
-   {
-      color:'orange'
-   }]
-
   var wordsToGuess = []
   var levelNumber = 0
 
@@ -84,15 +70,6 @@ app.config(function($routeProvider) {
           redirectTo: '/'
 }) })
 
-/* TODO: DELETE */
-app.directive('wordDirective', function() {
-  return {
-    restrict:'E', //only element name
-    scope: {
-      word: '=' //passing word as string
-    },
-    template: '<div ng-style="{backgroundColor:word.color}">{{word.name}}</div>',
-    controller: function($scope){
-      //additional logic
-} }
-})
+/*http.listen(3000, function(){
+  console.log('listening on *:3000')
+})*/
